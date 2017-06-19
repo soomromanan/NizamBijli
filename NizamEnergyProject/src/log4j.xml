@@ -1,0 +1,38 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true"
+	xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss} %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="fileInfo" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO" />
+		<param name="File"
+			value="${catalina.base}/wtpwebapps/NizamEnergyProject/src/info.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss} %-5p %c{2} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="fileError" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="ERROR" />
+		<param name="File"
+			value="${catalina.base}/wtpwebapps/NizamEnergyProject/src/error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss} %-5p %c{2}-%m%n" />
+		</layout>
+	</appender>
+
+	<!-- Configure the root logger here -->
+	<root>
+		<!-- <level value="INFO"/> -->
+		<appender-ref ref="Console" />
+		<appender-ref ref="fileInfo" />
+		<appender-ref ref="fileError" />
+	</root>
+</log4j:configuration>
