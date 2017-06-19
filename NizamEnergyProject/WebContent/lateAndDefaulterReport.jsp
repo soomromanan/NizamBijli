@@ -179,6 +179,8 @@
 										<th>District Name</th>
 										<th>Late</th>
 										<th>Defaulter</th>
+										
+										<th>Defaulter 2</th>
 									</tr>
 								</thead>
 								<tbody id="do_wise_late_defaulters">
